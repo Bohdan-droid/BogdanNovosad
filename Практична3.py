@@ -1,4 +1,3 @@
-# Перший словник
 my_dict = {
     "імʼя": "Богдан",
     "скільки років": 16,
@@ -11,20 +10,21 @@ my_dict = {
     "активний": True
 }
 
-# Словник з типами даних
-types_dict = {
-    "імʼя": type(my_dict["імʼя"]).__name__,
-    "скільки років": type(my_dict["скільки років"]).__name__,
-    "Деталі": {
-        "ріст": type(my_dict["Деталі"]["ріст"]).__name__,
-        "вага": type(my_dict["Деталі"]["вага"]).__name__,
-        "хоббі": type(my_dict["Деталі"]["хоббі"]).__name__,
-        "звідки родом": type(my_dict["Деталі"]["звідки родом"]).__name__,
-    },
-    "активний": type(my_dict["активний"]).__name__
-}
+# Словники для зберігання типів даних
+new_dict = {}
+temp_dict = {}
+
+# Заповнення словника new_dict типами даних
+for key, value in my_dict.items():
+    if isinstance(value, dict):
+        temp_dict = {}
+        for inner_key, inner_value in value.items():
+            temp_dict[inner_key] = type(inner_value).__name__
+        new_dict[key] = temp_dict
+    else:
+        new_dict[key] = type(value).__name__
 
 print("Перший словник:")
 print(my_dict)
 print("\nСловник з типами даних:")
-print(types_dict)
+print(new_dict)
