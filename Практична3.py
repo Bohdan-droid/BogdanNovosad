@@ -15,7 +15,7 @@ new_dict = {}
 temp_dict = {}
 
 # Заповнення словника new_dict типами даних
-for key value in my_dict.items():
+for key, value in my_dict.items():
     if isinstance(value, dict):
         temp_dict = {}
         for inner_key inner_value in value.items():
