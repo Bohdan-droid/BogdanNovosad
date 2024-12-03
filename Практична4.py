@@ -16,7 +16,7 @@ def sort_list(unique_list):
         elif type(i) == str:
             strings.append(i)
     numbers.sort()
-    strings.sort(key=lambda s: s.lower())
+    strings.sort(key=lambda s: s.lower())   # Сортує від найменьшого до найбільшого
     return numbers + strings
 
 unique_list = remove_dupl(input_list)
